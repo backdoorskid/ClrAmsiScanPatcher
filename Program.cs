@@ -148,6 +148,9 @@ namespace ClrAmsiScanPatcher
             Console.WriteLine("[+] Found instruction offset:           " + instructionOffset.ToString("X"));
 
             int amsiScanFunctionOffset = FindAmsiScanFunctionOffset(instructionOffset);
+            if (amsiScanFunctionOffset == 0)
+                return;
+            
             IntPtr amsiScanFunctionAddress = clrModule.BaseAddress + amsiScanFunctionOffset;
             Console.WriteLine("[+] Found AmsiScan function address:    " + amsiScanFunctionAddress.ToString("X") + "\n");
 
