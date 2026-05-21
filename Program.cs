@@ -102,7 +102,7 @@ namespace ClrAmsiScanPatcher
 
         static int FindAmsiScanFunctionOffset(int instructionOffset)
         {
-            byte[] functionStartBytes = IntPtr.Size == 4 ? new byte[] { 0xCC, 0x6A, 0x24 } : new byte[] { 0xCC, 0x48, 0x89 };
+            byte[] functionStartBytes = IntPtr.Size == 4 ? new byte[] { 0xCC, 0x6A, 0x24 } : new byte[] { 0xC3, 0x48, 0x89 };
 
             for (int i = instructionOffset; i >= 0; i--)
             {
